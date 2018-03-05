@@ -1,7 +1,10 @@
 # nodejs-starter
 This is a template Nodejs 
 
-Please Run
+# Usage
+
 ```
 docker-compose up --build
 ```
+
+NOTE: http://{ip}:3000
