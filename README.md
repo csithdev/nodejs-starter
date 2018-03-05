@@ -1,2 +1,2 @@
 # nodejs-starter
-This is a template Node.js 
+This is a template Nodejs 
