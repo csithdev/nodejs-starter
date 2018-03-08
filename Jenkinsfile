@@ -1,14 +1,12 @@
 pipeline {
   agent {
-    dockerfile {
-      filename 'Dockerfile'
-    }
+    dockerfile true
     
   }
   stages {
     stage('test') {
       steps {
-        sh 'node --version'
+        echo 'test naja'
       }
     }
   }
