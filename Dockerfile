@@ -3,10 +3,10 @@ MAINTAINER KU_AGILE_CSI
 
 RUN mkdir /app
 WORKDIR /app
-COPY ./nodejs/package*.json /app/
+COPY ./ku_backend/package*.json /app/
 RUN npm install
 
-COPY ./nodejs /app
+COPY ./ku_backend /app
 VOLUME ["/app"]
 
 EXPOSE 3000

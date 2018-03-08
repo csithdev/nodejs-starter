@@ -2,15 +2,24 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import Debug from 'debug';
 import express from 'express';
-import lessMiddleware from 'less-middleware';
+import sassMiddleware from 'node-sass-middleware';
 import logger from 'morgan';
 import path from 'path';
+import mongoose from 'mongoose';
 // import favicon from 'serve-favicon';
 
 import index from './routes/index';
+import v1 from './routes/v1';
 
 const app = express();
 const debug = Debug('nodejs:app');
+mongoose.connect('mongodb://localhost/ku_teaching', { promiseLibrary: global.Promise });
+const allowCrossDomain = (req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+};
 app.set('views', path.join(__dirname, 'views'));
 // view engine setup
 app.set('view engine', 'pug');
