@@ -36,16 +36,14 @@ pipeline {
     }
     stage('Build container') {
       steps {
-        sh 'docker build -t ku/node-example:latest .'
-        sh "docker tag ku/node-example:latest ku/node-example:latest:v${env.BUILD_ID}"
+        sh 'docker build -t csithdev/lab02:latest .'
+        sh "docker tag csithdev/lab02:latest csithdev/lab02:v${env.BUILD_ID}"
       }
     }
     stage('Deploy') {
       steps {
         input 'Ready to deploy?'
-        sh 'docker stack rm node-example'
-        sh 'docker stack deploy node-example --compose-file docker-compose.yml'
-        sh "docker service update node-example_server --image badamsbb/node-example:v${env.BUILD_ID}"
+        sh 'docker push csithdev/lab02:latest'
       }
     }
     stage('Verify') {
