@@ -1,9 +1,14 @@
 pipeline {
-  agent any
+  agent {
+    dockerfile {
+      filename 'Dockerfile'
+    }
+    
+  }
   stages {
-    stage('Build') {
+    stage('test') {
       steps {
-        echo 'Build'
+        sh 'node --version'
       }
     }
   }
