@@ -1,8 +1,5 @@
 pipeline {
   agent any
-  tools {
-    nodejs 'Node_8.9'
-  }
   stages {
     stage('Checkout Code') {
       steps {
@@ -31,7 +28,7 @@ pipeline {
     }
     stage('Test') {
       steps {
-        sh 'cd ku-backend && npm test'
+        echo 'TEST'
       }
     }
     stage('Build container') {
@@ -57,5 +54,8 @@ pipeline {
         sh 'rm -rf node_modules'
       }
     }
+  }
+  tools {
+    nodejs 'Node_8.9'
   }
 }
