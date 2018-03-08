@@ -6,14 +6,9 @@ pipeline {
     
   }
   stages {
-    stage('test') {
+    stage('Test') {
       steps {
-        echo 'test naja'
-      }
-    }
-    stage('end') {
-      steps {
-        echo 'End'
+        echo 'TEST'
       }
     }
   }
