@@ -29,7 +29,7 @@ pipeline {
     stage('Test') {
       steps {
         echo 'v${env.BUILD_ID}'
-        sh 'echo ${env.BUILD_NUMBER}'
+        sh 'echo ${BUILD_NUMBER}'
       }
     }
     stage('Build container') {
