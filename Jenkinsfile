@@ -40,8 +40,7 @@ pipeline {
     stage('Deploy') {
       steps {
         input 'Ready to deploy?'
-        sh '"docker commit csithdev/lab02:v${BUILD_ID}"'
-        sh '"docker push csithdev/lab02:v${BUILD_ID}"'
+        sh 'docker push csithdev/lab02:v${BUILD_ID}'
       }
     }
     stage('Verify') {
