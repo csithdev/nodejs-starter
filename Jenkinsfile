@@ -40,7 +40,7 @@ pipeline {
     stage('Deploy') {
       steps {
         input 'Ready to deploy?'
-        sh 'docker push csithdev/lab02:latest'
+        sh 'docker push csithdev/lab02:v${env.BUILD_ID}'
       }
     }
     stage('Verify') {
