@@ -28,7 +28,9 @@ pipeline {
     }
     stage('Test') {
       steps {
-        echo 'TEST'
+        echo 'v${env.BUILD_ID}'
+        sh 'echo v${env.BUILD_ID}'
+        sh 'echo ${env.BUILD_NUMBER}'
       }
     }
     stage('Build container') {
